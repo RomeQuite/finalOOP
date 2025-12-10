@@ -1,4 +1,3 @@
- 
 services:
   - type: web
     name: mysgp-app
@@ -17,7 +16,7 @@ services:
     
     envVars:
       - key: PYTHON_VERSION
-        value: 3.13.4
+        value: 3.11.0
       - key: DJANGO_SETTINGS_MODULE
         value: mysgp.settings
       - key: SECRET_KEY

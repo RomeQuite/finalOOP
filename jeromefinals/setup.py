@@ -35,4 +35,4 @@ A monochrome Django portfolio project with no database.
 
 1. Install requirements:
 ```bash
-pip install -r requirements.txt
+pip install -r requirements.txt""")
