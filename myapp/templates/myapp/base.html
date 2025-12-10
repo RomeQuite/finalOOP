@@ -15,12 +15,35 @@
             box-sizing: border-box;
         }
 
+        :root {
+            --bg-primary: #b2cbf5;
+            --bg-secondary: #f5f5f5;
+            --text-primary: #000000;
+            --text-secondary: #666;
+            --border-color: #e5e5e5;
+            --card-bg: #ffffff;
+        }
+
+        html.dark-mode {
+            --bg-primary: #1a1a1a;
+            --bg-secondary: #2a2a2a;
+            --text-primary: #ffffff;
+            --text-secondary: #b0b0b0;
+            --border-color: #333333;
+            --card-bg: #ffffff;
+        }
+
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #b2cbf5;
-            color: #000000;
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
             line-height: 1.6;
             font-weight: 400;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        html.dark-mode body {
+            color: var(--text-primary);
         }
 
         .container {
@@ -30,13 +53,51 @@
             padding: 0 2rem;
         }
 
+        /* ===== DARK MODE TOGGLE ===== */
+        .dark-mode-toggle {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        .toggle-switch {
+            position: relative;
+            width: 50px;
+            height: 28px;
+            background-color: var(--border-color);
+            border-radius: 20px;
+            transition: background-color 0.3s ease;
+        }
+
+        .toggle-switch::after {
+            content: '';
+            position: absolute;
+            width: 24px;
+            height: 24px;
+            background-color: white;
+            border-radius: 50%;
+            top: 2px;
+            left: 2px;
+            transition: left 0.3s ease;
+        }
+
+        html.dark-mode .toggle-switch {
+            background-color: #4a4a4a;
+        }
+
+        html.dark-mode .toggle-switch::after {
+            left: 24px;
+        }
+
         /* ===== NAVIGATION ===== */
         .nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
             padding: 2rem 0;
-            border-bottom: 1px solid #e5e5e5;
+            border-bottom: 1px solid var(--border-color);
             margin-bottom: 4rem;
         }
 
@@ -54,7 +115,7 @@
 
         .nav-link {
             text-decoration: none;
-            color: #666;
+            color: var(--text-secondary);
             font-size: 0.875rem;
             font-weight: 500;
             text-transform: uppercase;
@@ -64,7 +125,7 @@
         }
 
         .nav-link.active {
-            color: #000;
+            color: var(--text-primary);
         }
 
         .nav-link.active::after {
@@ -74,11 +135,11 @@
             left: 0;
             width: 100%;
             height: 1px;
-            background-color: #000;
+            background-color: var(--text-primary);
         }
 
         .nav-link:hover {
-            color: #000;
+            color: var(--text-primary);
         }
 
         /* ===== HERO SECTION ===== */
@@ -100,7 +161,7 @@
         .hero-subtitle {
             font-size: 1.5rem;
             font-weight: 400;
-            color: #666;
+            color: var(--text-secondary);
             max-width: 600px;
         }
 
@@ -110,7 +171,7 @@
             font-weight: 600;
             margin-bottom: 2rem;
             padding-bottom: 0.5rem;
-            border-bottom: 1px solid #e5e5e5;
+            border-bottom: 1px solid var(--border-color);
         }
 
         /* ===== PROJECTS ===== */
@@ -123,12 +184,13 @@
 
         .project-card {
             padding: 2rem;
-            border: 1px solid #e5e5e5;
+            border: 1px solid var(--border-color);
+            background-color: var(--card-bg);
             transition: border-color 0.2s ease;
         }
 
         .project-card:hover {
-            border-color: #000;
+            border-color: var(--text-primary);
         }
 
         .project-meta {
@@ -136,7 +198,7 @@
             justify-content: space-between;
             margin-bottom: 1rem;
             font-size: 0.875rem;
-            color: #666;
+            color: var(--text-secondary);
         }
 
         .project-title {
@@ -144,9 +206,8 @@
             font-weight: 600;
             margin-bottom: 1rem;
         }
-
         .project-description {
-            color: #666;
+            color: var(--text-secondary);
             margin-bottom: 1.5rem;
             line-height: 1.6;
         }
@@ -159,10 +220,11 @@
 
         .project-tag {
             padding: 0.25rem 0.75rem;
-            background-color: #f5f5f5;
-            border: 1px solid #e5e5e5;
+            background-color: var(--bg-secondary);
+            border: 1px solid var(--border-color);
             font-size: 0.75rem;
-            color: #666;
+            color: var(--text-secondary);
+        }   color: #666;
         }
 
         /* ===== LATEST CONTENT ===== */
@@ -176,15 +238,15 @@
             gap: 3rem;
             margin-bottom: 4rem;
         }
-
         .content-card {
             padding: 2rem;
-            border: 1px solid #e5e5e5;
+            border: 1px solid var(--border-color);
+            background-color: var(--card-bg);
             transition: border-color 0.2s ease;
         }
 
         .content-card:hover {
-            border-color: #000;
+            border-color: var(--text-primary);
         }
 
         .content-meta {
@@ -192,7 +254,8 @@
             justify-content: space-between;
             margin-bottom: 1rem;
             font-size: 0.875rem;
-            color: #666;
+            color: var(--text-secondary);
+        }   color: #666;
         }
 
         .content-title {
@@ -200,41 +263,39 @@
             font-weight: 600;
             margin-bottom: 1rem;
             line-height: 1.4;
-        }
-
         .content-excerpt {
-            color: #666;
+            color: var(--text-secondary);
             margin-bottom: 1.5rem;
             line-height: 1.6;
         }
 
         .read-more {
-            color: #000;
+            color: var(--text-primary);
             text-decoration: none;
             font-weight: 500;
         }
 
         .read-more:hover {
             text-decoration: underline;
+        }read-more:hover {
+            text-decoration: underline;
         }
 
         /* ===== MAKERLOG ===== */
         .makerlog-section {
             margin-bottom: 6rem;
-        }
-
         .makerlog-content {
-            border: 1px solid #e5e5e5;
+            border: 1px solid var(--border-color);
+            padding: 2rem;
+            background-color: var(--card-bg);
+        }   border: 1px solid #e5e5e5;
             padding: 2rem;
         }
 
         .makerlog-header {
-            margin-bottom: 1.5rem;
-        }
-
         .makerlog-header h3 {
             font-size: 1.125rem;
-            color: #000;
+            color: var(--text-primary);
         }
 
         .makerlog-list {
@@ -243,8 +304,8 @@
 
         .makerlog-item {
             padding: 0.75rem 0;
-            border-bottom: 1px solid #f0f0f0;
-            color: #666;
+            border-bottom: 1px solid var(--bg-secondary);
+            color: var(--text-secondary);
             position: relative;
             padding-left: 1.5rem;
         }
@@ -252,6 +313,9 @@
         .makerlog-item:before {
             content: '•';
             position: absolute;
+            left: 0;
+            color: var(--text-primary);
+        }   position: absolute;
             left: 0;
             color: #000;
         }
@@ -262,24 +326,25 @@
 
         /* ===== NEWSLETTER CTA ===== */
         .newsletter-cta {
-            margin-bottom: 6rem;
-        }
-
         .newsletter-card {
-            border: 1px solid #e5e5e5;
+            border: 1px solid var(--border-color);
+            padding: 3rem;
+            text-align: center;
+            background-color: var(--card-bg);
+        }   border: 1px solid #e5e5e5;
             padding: 3rem;
             text-align: center;
         }
 
         .newsletter-title {
             font-size: 1.5rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-        }
-
         .newsletter-text {
-            color: #666;
+            color: var(--text-secondary);
             margin-bottom: 2rem;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }   margin-bottom: 2rem;
             max-width: 500px;
             margin-left: auto;
             margin-right: auto;
@@ -291,52 +356,49 @@
         }
 
         .newsletter-form .form-group {
-            margin-bottom: 1rem;
-        }
-
         .newsletter-form .email-input {
             width: 100%;
             padding: 0.75rem 1rem;
-            border: 1px solid #e5e5e5;
+            border: 1px solid var(--border-color);
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
             font-family: 'Inter', sans-serif;
             font-size: 1rem;
         }
 
         .newsletter-form .email-input:focus {
             outline: none;
-            border-color: #000;
+            border-color: var(--text-primary);
         }
 
         .newsletter-form .subscribe-btn {
             width: 100%;
             padding: 0.75rem;
-            background-color: #000;
-            color: #fff;
+            background-color: var(--text-primary);
+            color: var(--bg-primary);
             border: none;
             font-family: 'Inter', sans-serif;
             font-size: 1rem;
             font-weight: 500;
             cursor: pointer;
-            transition: background-color 0.2s ease;
+            transition: opacity 0.2s ease;
         }
 
         .newsletter-form .subscribe-btn:hover {
-            background-color: #333;
-        }
-
+            opacity: 0.8;
         /* ===== FOOTER ===== */
         .footer {
             display: flex;
             justify-content: space-between;
             align-items: center;
             padding: 2rem 0;
-            border-top: 1px solid #e5e5e5;
+            border-top: 1px solid var(--border-color);
             margin-top: 4rem;
         }
 
         .copyright {
             font-size: 0.875rem;
-            color: #666;
+            color: var(--text-secondary);
         }
 
         .social-links {
@@ -345,10 +407,15 @@
         }
 
         .social-link {
-            color: #666;
+            color: var(--text-secondary);
             text-decoration: none;
             font-size: 0.875rem;
             transition: color 0.2s ease;
+        }
+
+        .social-link:hover {
+            color: var(--text-primary);
+        }   transition: color 0.2s ease;
         }
 
         .social-link:hover {
@@ -414,6 +481,28 @@
             }
         }
     </style>
+    <script>
+        // Dark mode initialization
+        function initDarkMode() {
+            const isDarkMode = localStorage.getItem('dark-mode') === 'true';
+            if (isDarkMode) {
+                document.documentElement.classList.add('dark-mode');
+            }
+        }
+
+        // Initialize on page load
+        document.addEventListener('DOMContentLoaded', initDarkMode);
+        
+        // Also initialize immediately to prevent flash
+        initDarkMode();
+
+        function toggleDarkMode() {
+            const html = document.documentElement;
+            html.classList.toggle('dark-mode');
+            const isDarkMode = html.classList.contains('dark-mode');
+            localStorage.setItem('dark-mode', isDarkMode);
+        }
+    </script>
 </head>
 <body>
     <div class="container">
@@ -422,10 +511,16 @@
             <div class="logo">
                 <a href="{% url 'home' %}" style="text-decoration: none; color: inherit;">JEROME</a>
             </div>
-            <div class="nav-links">
-                <a href="{% url 'home' %}" class="nav-link {% if active_page == 'projects' %}active{% endif %}">PROJECTS</a>
-                <a href="{% url 'writing' %}" class="nav-link {% if active_page == 'writing' %}active{% endif %}">WRITING</a>
-                <a href="{% url 'about' %}" class="nav-link {% if active_page == 'about' %}active{% endif %}">ABOUT</a>
+            <div style="display: flex; gap: 3rem; align-items: center;">
+                <div class="nav-links">
+                    <a href="{% url 'home' %}" class="nav-link {% if active_page == 'projects' %}active{% endif %}">PROJECTS</a>
+                    <a href="{% url 'writing' %}" class="nav-link {% if active_page == 'writing' %}active{% endif %}">WRITING</a>
+                    <a href="{% url 'about' %}" class="nav-link {% if active_page == 'about' %}active{% endif %}">ABOUT</a>
+                </div>
+                <div class="dark-mode-toggle" onclick="toggleDarkMode()">
+                    <span style="font-size: 0.875rem;">🌙</span>
+                    <div class="toggle-switch"></div>
+                </div>
             </div>
         </nav>
 
