@@ -10,11 +10,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = 'jeromefinals-secret-key-no-db-required'
 
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 INSTALLED_APPS = [
+    'django.contrib.staticfiles',
     'myapp',
 ]
 
@@ -58,8 +59,13 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATIC_ROOT = BASE_DIR / "staticfiles"
 
+# Ensure static directory exists
+static_dir = BASE_DIR / "static"
+if not static_dir.exists():
+    os.makedirs(static_dir, exist_ok=True)
+
 STATICFILES_DIRS = [
-    BASE_DIR / "static",
+    static_dir,
 ]
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
