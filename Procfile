@@ -1,1 +1,1 @@
-web: gunicorn jeromefinals.wsgi
+web: gunicorn jeromefinals.wsgi:application --bind 0.0.0.0:$PORT

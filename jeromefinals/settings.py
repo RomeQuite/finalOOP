@@ -45,7 +45,13 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'jeromefinals.wsgi.application'
 
-# NO DATABASE
+# Dummy database configuration
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
+}
 
 # NO PASSWORD VALIDATION
 AUTH_PASSWORD_VALIDATORS = []
