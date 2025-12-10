@@ -1,0 +1,37 @@
+{% extends 'myapp/base.html' %}
+{% load static %}
+
+{% block title %}Writing | Jerome{% endblock %}
+
+{% block content %}
+<!-- Writing Header -->
+<section class="intro-section">
+    <h1 class="name" style="font-size: 4rem;">Writing</h1>
+    <p class="location" style="margin-top: 1rem;">Thoughts on tech, design, and product development</p>
+</section>
+
+<!-- Articles List -->
+<section class="articles-section">
+    {% for article in articles %}
+    <article class="article-item">
+        <div class="article-meta">
+            <span class="article-date">{{ article.date }}</span>
+            <span class="article-read-time">{{ article.read_time }}</span>
+        </div>
+        <h2 class="article-title">{{ article.title }}</h2>
+        <p class="article-excerpt">{{ article.excerpt }}</p>
+        <a href="#" class="read-more">Read more →</a>
+    </article>
+    {% endfor %}
+</section>
+
+<!-- Newsletter CTA -->
+<section class="newsletter-section">
+    <h3 class="section-title">Subscribe to My Newsletter</h3>
+    <p class="section-subtitle">Get updates on new articles and projects</p>
+    <form class="newsletter-form">
+        <input type="email" placeholder="Your email address" class="email-input">
+        <button type="submit" class="subscribe-btn">Subscribe</button>
+    </form>
+</section>
+{% endblock %}

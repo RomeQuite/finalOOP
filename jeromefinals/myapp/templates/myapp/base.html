@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Jerome | Portfolio{% endblock %}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* ===== RESET & BASE ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #b2cbf5;
+            color: #000000;
+            line-height: 1.6;
+            font-weight: 400;
+        }
+
+        .container {
+            max-width: 1200px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* ===== NAVIGATION ===== */
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 2rem 0;
+            border-bottom: 1px solid #e5e5e5;
+            margin-bottom: 4rem;
+        }
+
+        .logo {
+            font-family: 'Space Mono', monospace;
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 3rem;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: #666;
+            font-size: 0.875rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: color 0.2s ease;
+            position: relative;
+        }
+
+        .nav-link.active {
+            color: #000;
+        }
+
+        .nav-link.active::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background-color: #000;
+        }
+
+        .nav-link:hover {
+            color: #000;
+        }
+
+        /* ===== HERO SECTION ===== */
+        .hero-section {
+            margin-bottom: 6rem;
+        }
+
+        .hero-title {
+            font-size: 4rem;
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 1rem;
+        }
+
+        .hero-name {
+            font-family: 'Space Mono', monospace;
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            font-weight: 400;
+            color: #666;
+            max-width: 600px;
+        }
+
+        /* ===== SECTION HEADINGS ===== */
+        .section-heading {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 2rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid #e5e5e5;
+        }
+
+        /* ===== PROJECTS ===== */
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            margin-bottom: 6rem;
+        }
+
+        .project-card {
+            padding: 2rem;
+            border: 1px solid #e5e5e5;
+            transition: border-color 0.2s ease;
+        }
+
+        .project-card:hover {
+            border-color: #000;
+        }
+
+        .project-meta {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 1rem;
+            font-size: 0.875rem;
+            color: #666;
+        }
+
+        .project-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .project-description {
+            color: #666;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .project-tag {
+            padding: 0.25rem 0.75rem;
+            background-color: #f5f5f5;
+            border: 1px solid #e5e5e5;
+            font-size: 0.75rem;
+            color: #666;
+        }
+
+        /* ===== LATEST CONTENT ===== */
+        .latest-content {
+            margin-bottom: 6rem;
+        }
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            margin-bottom: 4rem;
+        }
+
+        .content-card {
+            padding: 2rem;
+            border: 1px solid #e5e5e5;
+            transition: border-color 0.2s ease;
+        }
+
+        .content-card:hover {
+            border-color: #000;
+        }
+
+        .content-meta {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 1rem;
+            font-size: 0.875rem;
+            color: #666;
+        }
+
+        .content-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            line-height: 1.4;
+        }
+
+        .content-excerpt {
+            color: #666;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .read-more {
+            color: #000;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .read-more:hover {
+            text-decoration: underline;
+        }
+
+        /* ===== MAKERLOG ===== */
+        .makerlog-section {
+            margin-bottom: 6rem;
+        }
+
+        .makerlog-content {
+            border: 1px solid #e5e5e5;
+            padding: 2rem;
+        }
+
+        .makerlog-header {
+            margin-bottom: 1.5rem;
+        }
+
+        .makerlog-header h3 {
+            font-size: 1.125rem;
+            color: #000;
+        }
+
+        .makerlog-list {
+            list-style: none;
+        }
+
+        .makerlog-item {
+            padding: 0.75rem 0;
+            border-bottom: 1px solid #f0f0f0;
+            color: #666;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+        .makerlog-item:before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: #000;
+        }
+
+        .makerlog-item:last-child {
+            border-bottom: none;
+        }
+
+        /* ===== NEWSLETTER CTA ===== */
+        .newsletter-cta {
+            margin-bottom: 6rem;
+        }
+
+        .newsletter-card {
+            border: 1px solid #e5e5e5;
+            padding: 3rem;
+            text-align: center;
+        }
+
+        .newsletter-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .newsletter-text {
+            color: #666;
+            margin-bottom: 2rem;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .newsletter-form {
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        .newsletter-form .form-group {
+            margin-bottom: 1rem;
+        }
+
+        .newsletter-form .email-input {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border: 1px solid #e5e5e5;
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+        }
+
+        .newsletter-form .email-input:focus {
+            outline: none;
+            border-color: #000;
+        }
+
+        .newsletter-form .subscribe-btn {
+            width: 100%;
+            padding: 0.75rem;
+            background-color: #000;
+            color: #fff;
+            border: none;
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+        }
+
+        .newsletter-form .subscribe-btn:hover {
+            background-color: #333;
+        }
+
+        /* ===== FOOTER ===== */
+        .footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 2rem 0;
+            border-top: 1px solid #e5e5e5;
+            margin-top: 4rem;
+        }
+
+        .copyright {
+            font-size: 0.875rem;
+            color: #666;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .social-link {
+            color: #666;
+            text-decoration: none;
+            font-size: 0.875rem;
+            transition: color 0.2s ease;
+        }
+
+        .social-link:hover {
+            color: #000;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 1rem;
+            }
+            
+            .nav {
+                flex-direction: column;
+                gap: 1rem;
+                padding: 1.5rem 0;
+                margin-bottom: 3rem;
+            }
+            
+            .nav-links {
+                gap: 1.5rem;
+            }
+            
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.25rem;
+            }
+            
+            .project-grid,
+            .content-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .footer {
+                flex-direction: column;
+                gap: 1.5rem;
+                text-align: center;
+            }
+            
+            .social-links {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-title {
+                font-size: 2rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.125rem;
+            }
+            
+            .project-card,
+            .content-card,
+            .newsletter-card {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Navigation -->
+        <nav class="nav">
+            <div class="logo">
+                <a href="{% url 'home' %}" style="text-decoration: none; color: inherit;">JEROME</a>
+            </div>
+            <div class="nav-links">
+                <a href="{% url 'home' %}" class="nav-link {% if active_page == 'projects' %}active{% endif %}">PROJECTS</a>
+                <a href="{% url 'writing' %}" class="nav-link {% if active_page == 'writing' %}active{% endif %}">WRITING</a>
+                <a href="{% url 'about' %}" class="nav-link {% if active_page == 'about' %}active{% endif %}">ABOUT</a>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            {% block content %}{% endblock %}
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-left">
+                <p class="copyright">© 2024 Jerome. All rights reserved.</p>
+            </div>
+            <div class="footer-right">
+                <div class="social-links">
+                    <a href="#" class="social-link">Medium</a>
+                    <a href="#" class="social-link">LinkedIn</a>
+                    <a href="#" class="social-link">Instagram</a> 
+                    <a href="#" class="social-link">Twitter</a>
+                    <a href="#" class="social-link">Product Hunt</a>
+                    <a href="#" class="social-link">Makerlog</a>
+                </div>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>

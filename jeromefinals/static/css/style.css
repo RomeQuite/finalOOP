@@ -1,0 +1,158 @@
+/* ===== LATEST CONTENT ===== */
+.latest-content {
+    margin-bottom: 6rem;
+}
+
+.content-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 3rem;
+    margin-bottom: 4rem;
+}
+
+.content-card {
+    padding: 2rem;
+    border: 1px solid #e5e5e5;
+    transition: border-color 0.2s ease;
+}
+
+.content-card:hover {
+    border-color: #000;
+}
+
+.content-meta {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+    font-size: 0.875rem;
+    color: #666;
+}
+
+.content-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    line-height: 1.4;
+}
+
+.content-excerpt {
+    color: #666;
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+}
+
+.read-more {
+    color: #000;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.read-more:hover {
+    text-decoration: underline;
+}
+
+/* ===== MAKERLOG ===== */
+.makerlog-section {
+    margin-bottom: 6rem;
+}
+
+.makerlog-content {
+    border: 1px solid #e5e5e5;
+    padding: 2rem;
+}
+
+.makerlog-header {
+    margin-bottom: 1.5rem;
+}
+
+.makerlog-header h3 {
+    font-size: 1.125rem;
+    color: #000;
+}
+
+.makerlog-list {
+    list-style: none;
+}
+
+.makerlog-item {
+    padding: 0.75rem 0;
+    border-bottom: 1px solid #f0f0f0;
+    color: #666;
+    position: relative;
+    padding-left: 1.5rem;
+}
+
+.makerlog-item:before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    color: #000;
+}
+
+.makerlog-item:last-child {
+    border-bottom: none;
+}
+
+/* ===== NEWSLETTER CTA ===== */
+.newsletter-cta {
+    margin-bottom: 6rem;
+}
+
+.newsletter-card {
+    border: 1px solid #e5e5e5;
+    padding: 3rem;
+    text-align: center;
+}
+
+.newsletter-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.newsletter-text {
+    color: #666;
+    margin-bottom: 2rem;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.newsletter-form {
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.newsletter-form .form-group {
+    margin-bottom: 1rem;
+}
+
+.newsletter-form .email-input {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 1px solid #e5e5e5;
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+}
+
+.newsletter-form .email-input:focus {
+    outline: none;
+    border-color: #000;
+}
+
+.newsletter-form .subscribe-btn {
+    width: 100%;
+    padding: 0.75rem;
+    background-color: #000;
+    color: #fff;
+    border: none;
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.newsletter-form .subscribe-btn:hover {
+    background-color: #333;
+}

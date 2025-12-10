@@ -1,0 +1,67 @@
+{% extends 'myapp/base.html' %}
+{% load static %}
+
+{% block title %}Jerome | Portfolio{% endblock %}
+
+{% block content %}
+<!-- Introduction Section -->
+<section class="intro-section">
+    <div class="greeting">Hello. I'm</div>
+    <h1 class="name">Jerome.</h1>
+    
+    <div class="title-section">
+        <h2 class="title">Product Manager & Maker</h2>
+        <p class="location">based in London</p>
+    </div>
+</section>
+
+<!-- Button Section -->
+<section class="button-section">
+    <a href="#projects" class="view-works-btn">
+        VIEW MY WORKS
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+    </a>
+</section>
+
+<!-- Skills Section -->
+<section class="skills-section" style="margin: 4rem 0;">
+    <h3 class="section-title">Skills & Expertise</h3>
+    <div class="skills-grid">
+        {% for skill in skills %}
+        <span class="skill-tag">{{ skill }}</span>
+        {% endfor %}
+    </div>
+</section>
+
+<!-- Languages Section -->
+<section class="languages-section" style="margin: 4rem 0;">
+    <h3 class="section-title">Languages</h3>
+    <div class="languages-list">
+        {% for language in languages %}
+        <div class="language-item">{{ language }}</div>
+        {% endfor %}
+    </div>
+</section>
+
+<!-- Projects Section -->
+<section id="projects" class="projects-preview">
+    <h3 class="section-title" style="margin-bottom: 2rem;">Featured Projects</h3>
+    
+    {% for project in projects %}
+    <div class="project-item">
+        <div class="project-number">0{{ project.id }}</div>
+        <div class="project-info">
+            <h3 class="project-title">{{ project.title }}</h3>
+            <p class="project-description">{{ project.description }}</p>
+            <div class="project-tech">
+                {% for tech in project.tech %}
+                <span class="tech-tag">{{ tech }}</span>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</section>
+{% endblock %}

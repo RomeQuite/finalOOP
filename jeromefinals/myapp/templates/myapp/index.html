@@ -1,0 +1,149 @@
+{% extends 'myapp/base.html' %}
+
+{% block title %}Jerome | Portfolio{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="hero-section">
+    <div class="hero-content">
+        <h1 class="hero-title">Hello. I'm <span class="hero-name">Jerome.</span></h1>
+        <h2 class="hero-subtitle">Product Manager & Maker based in London</h2>
+    </div>
+</section>
+
+<!-- Featured Projects -->
+<section class="featured-projects">
+    <h2 class="section-heading">Featured Projects</h2>
+    
+    <div class="project-grid">
+        <div class="project-card">
+            <div class="project-meta">
+                <span class="project-category">Web App</span>
+                <span class="project-year">2024</span>
+            </div>
+            <h3 class="project-title">Automated Feedback Platform</h3>
+            <p class="project-description">
+                A complete system to automate user feedback collection before product launch. 
+                Gather early adopters, collect feedback, and build excitement with automated workflows.
+            </p>
+            <div class="project-tags">
+                <span class="project-tag">Django</span>
+                <span class="project-tag">React</span>
+                <span class="project-tag">PostgreSQL</span>
+            </div>
+        </div>
+        
+        <div class="project-card">
+            <div class="project-meta">
+                <span class="project-category">Research</span>
+                <span class="project-year">2024</span>
+            </div>
+            <h3 class="project-title">User Testing Platform Analysis</h3>
+            <p class="project-description">
+                Comprehensive analysis of every major user testing platform. 
+                Detailed comparisons, pricing breakdowns, and recommendations for different use cases.
+            </p>
+            <div class="project-tags">
+                <span class="project-tag">Research</span>
+                <span class="project-tag">Analysis</span>
+                <span class="project-tag">UI/UX</span>
+            </div>
+        </div>
+        
+        <div class="project-card">
+            <div class="project-meta">
+                <span class="project-category">Marketplace</span>
+                <span class="project-year">2024</span>
+            </div>
+            <h3 class="project-title">Side Projects Marketplace</h3>
+            <p class="project-description">
+                Platform for buying and selling side projects with integrated valuation tools. 
+                Based on firsthand experience from selling multiple online businesses.
+            </p>
+            <div class="project-tags">
+                <span class="project-tag">Node.js</span>
+                <span class="project-tag">Vue.js</span>
+                <span class="project-tag">Stripe</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Latest Content -->
+<section class="latest-content">
+    <h2 class="section-heading">Latest Content</h2>
+    
+    <div class="content-grid">
+        <div class="content-card">
+            <div class="content-meta">
+                <span class="content-category">Guide</span>
+                <span class="content-read-time">8 min read</span>
+            </div>
+            <h3 class="content-title">How to Completely Automate User Feedback Before You Launch</h3>
+            <p class="content-excerpt">
+                Neither your early adopters, gather their feedback and drum up some excitement with a fully automated feedback loop for your MVP.
+            </p>
+            <a href="#" class="read-more">Read More →</a>
+        </div>
+        
+        <div class="content-card">
+            <div class="content-meta">
+                <span class="content-category">Research</span>
+                <span class="content-read-time">10 min read</span>
+            </div>
+            <h3 class="content-title">I Studied Every User Testing Platform</h3>
+            <p class="content-excerpt">
+                As a Product Manager, user testing is a weekly (if not daily) ritual. Here's what I found after analyzing every major platform.
+            </p>
+            <a href="#" class="read-more">Read More →</a>
+        </div>
+        
+        <div class="content-card">
+            <div class="content-meta">
+                <span class="content-category">Marketplace</span>
+                <span class="content-read-time">6 min read</span>
+            </div>
+            <h3 class="content-title">Top 5 Marketplaces to Buy and Sell Side Projects</h3>
+            <p class="content-excerpt">
+                After selling two online businesses, I compiled all my research including firsthand accounts of each marketplace.
+            </p>
+            <a href="#" class="read-more">Read More →</a>
+        </div>
+    </div>
+</section>
+
+<!-- Makerlog Activity -->
+<section class="makerlog-section">
+    <h2 class="section-heading">Makerlog Activity</h2>
+    
+    <div class="makerlog-content">
+        <div class="makerlog-header">
+            <h3>Done this week</h3>
+        </div>
+        
+        <ul class="makerlog-list">
+            <li class="makerlog-item">Catalogue and analyse BetaTests portfolio design feedback</li>
+            <li class="makerlog-item">Created a personal OKR tracker</li>
+            <li class="makerlog-item">Updated project documentation</li>
+            <li class="makerlog-item">Published user testing guide</li>
+        </ul>
+    </div>
+</section>
+
+<!-- Newsletter CTA -->
+<section class="newsletter-cta">
+    <div class="newsletter-card">
+        <h3 class="newsletter-title">Get My Latest Content</h3>
+        <p class="newsletter-text">
+            No spam. Just my latest content, projects and insights as when I feel it's worth sharing.
+        </p>
+        
+        <form class="newsletter-form">
+            <div class="form-group">
+                <input type="email" class="email-input" placeholder="Your email address" required>
+            </div>
+            <button type="submit" class="subscribe-btn">Subscribe to Newsletter</button>
+        </form>
+    </div>
+</section>
+{% endblock %}
