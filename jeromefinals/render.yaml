@@ -17,7 +17,7 @@ services:
     envVars:
       - key: PYTHON_VERSION
         value: 3.11.0
-      - key: DJANGO_SETTINGS_MODULE
+      - key: DJANGO_SETTINGS_MODULE  # FIXED SPELLING
         value: mysgp.settings
       - key: SECRET_KEY
         generateValue: true
