@@ -1,0 +1,8 @@
+services:
+  - type: web
+    name: jeromefinals
+    env: python
+    region: oregon
+    plan: free
+    buildCommand: pip install -r requirements.txt && python manage.py collectstatic --no-input
+    startCommand: gunicorn jeromefinals.wsgi:application --bind 0.0.0.0:$PORT
